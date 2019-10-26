@@ -1,7 +1,5 @@
 package com.javabrains.model;
 
-import java.util.List;
-
 import javax.persistence.*;
 @Entity
 public class Student {
@@ -11,8 +9,8 @@ public class Student {
 	private String name;
 	private int marks;
 	
-	@ManyToMany(mappedBy="stds")
-	private List<Laptop> laps;
+	@OneToOne
+	private Laptop lap;
 	
 	
 	//getters & setters
@@ -36,11 +34,11 @@ public class Student {
 	}
 	
 	
-	public List<Laptop> getLap() {
-		return laps;
+	public Laptop getLap() {
+		return lap;
 	}
-	public void setLap(List<Laptop> laps) {
-		this.laps = laps;
+	public void setLap(Laptop lap) {
+		this.lap = lap;
 	}
 	@Override
 	public String toString() {
